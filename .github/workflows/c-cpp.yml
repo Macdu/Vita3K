@@ -47,7 +47,7 @@ jobs:
 
       - name: Set up build environment (macos-latest)
         run: |
-          brew install boost ccache ninja molten-vk
+          brew install boost ccache ninja molten-vk openssl
           echo "/usr/local/opt/ccache/libexec" >> $GITHUB_PATH
         if: matrix.os == 'macos-latest'
 
