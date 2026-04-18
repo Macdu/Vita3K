@@ -33,12 +33,7 @@
 #define SDL_CHECK_NEG(f_call) SDL_CHECK_EXT((f_call) >= 0, {})
 
 static int get_threshold_samples(const int device_buffer_samples) {
-#ifdef __ANDROID__
-    // Android's audio latency is higher than other platforms, so increase prebuffering to reduce underruns.
     return 4 * device_buffer_samples;
-#else
-    return 2 * device_buffer_samples;
-#endif
 }
 
 void SDLCALL SDLAudioAdapter::thread_wakeup_callback(void *userdata, SDL_AudioStream *stream, int additional_amount, int total_amount) {
